@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head lang='en'>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width'>
+
+  <title>rollup-test</title>
+
+</head>
+
+<body>
+  <h1>rollup-test</h1>
+  <p>look at your console / network tab</p>
+  <p id="foo"></p>
+  <p id="bar"></p>
+
+	<!-- for modern browsers -->
+	<script type='module' src='module/main.js'></script>
+
+  <!-- for older browsers -->
+  <script>
+    if (typeof Promise === 'undefined') document.write('<script src="../node_modules/bluebird/js/browser/bluebird.core.js"><\/script>');
+  </script>
+
+  <script nomodule src="../node_modules/systemjs/dist/system.js"></script>
+	<script nomodule>
+		System.import('./nomodule/main.js');
+	</script>
+</body>
+</html>
